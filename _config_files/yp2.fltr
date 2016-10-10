@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Filter tree file. Produced by DataSifter3.0, http://www.cliversoft.com-->
+<FilterTree>
+  <Filter type="RegexFilter" version="1.0" input_group="" definition="href=&quot;mailto:(?'Email'[^&gt;]*?)&quot;[^&gt;]*?&gt;Email Business&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+</FilterTree>

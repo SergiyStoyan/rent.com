@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Filter tree file. Produced by DataSifter3.0, http://www.cliversoft.com-->
+<FilterTree>
+  <Filter type="AgileFilter" version="1.0" input_group="" definition="//div[@class=&quot;prop li-srp&quot;]&#xA;Product" comment="">
+    <Filter type="RegexFilter" version="1.0" input_group="Product" definition="addressLocality&quot;&gt;(?'City'.*?)&lt;.*?addressRegion&quot;&gt;(?'State'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+    <Filter type="RegexFilter" version="1.0" input_group="Product" definition="class=&quot;tel&quot;&gt;(?'Phone2'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+    <Filter type="RegexFilter" version="1.0" input_group="Product" definition="property_title&quot;&gt;&lt;strong&gt;(?'Name'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+    <Filter type="RegexFilter" version="1.0" input_group="Product" definition="data-property-telephone=&quot;(?'Phone'.*?)&quot;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+    <Filter type="RegexFilter" version="1.0" input_group="Product" definition="prop-info-links&quot;&gt;&lt;a href=&quot;(?'Url'.*?)&quot;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+  </Filter>
+  <Filter type="RegexFilter" version="1.0" input_group="" definition="&lt;link rel=&quot;next&quot; href=&quot;(?'NextPageUrl'.*?)&quot;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+</FilterTree>

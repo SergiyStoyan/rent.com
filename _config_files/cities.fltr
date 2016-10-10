@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Filter tree file. Produced by DataSifter3.0, http://www.cliversoft.com-->
+<FilterTree>
+  <Filter type="RegexFilter" version="1.0" input_group="" definition="&lt;ul class=&quot;col-lg-4&quot;&gt;(.*?)&lt;/ul&#xA;IgnoreCase, Compiled, Singleline" comment="">
+    <Filter type="RegexFilter" version="1.0" input_group="1" definition="href=&quot;(?'Url'.*?)&quot;&gt;(?'City'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+  </Filter>
+</FilterTree>

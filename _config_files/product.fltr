@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Filter tree file. Produced by DataSifter3.0, http://www.cliversoft.com-->
+<FilterTree>
+  <Filter type="RegexFilter" version="1.0" input_group="" definition="postalCode&quot;&gt;(?'ZipCode'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+  <Filter type="RegexFilter" version="1.0" input_group="" definition="streetAddress&quot;&gt;(?'Address'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+</FilterTree>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Filter tree file. Produced by DataSifter3.0, http://www.cliversoft.com-->
+<FilterTree>
+  <Filter type="AgileFilter" version="1.0" input_group="" definition="//div[@class='info']&#xA;&#xA;Company" comment="">
+    <Filter type="RegexFilter" version="1.0" input_group="Company" definition="href=&quot;(?'Url'.*?)&quot;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+    <Filter type="RegexFilter" version="1.0" input_group="Company" definition="business-name&quot;&gt;(?'Name'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+    <Filter type="RegexFilter" version="1.0" input_group="Company" definition="class=&quot;locality&quot;&gt;(?'City'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+    <Filter type="RegexFilter" version="1.0" input_group="Company" definition="addressRegion&quot;&gt;(?'State'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+    <Filter type="RegexFilter" version="1.0" input_group="Company" definition="postalCode&quot;&gt;(?'ZipCode'.*?)&lt;&#xA;IgnoreCase, Compiled, Singleline" comment="" />
+  </Filter>
+</FilterTree>

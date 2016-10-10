@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cliver.BotCustomization" GeneratedClassName="Custom">
+  <Profiles />
+  <Settings>
+    <Setting Name="Email" Type="System.String" Scope="User">
+      <Value Profile="(Default)">L-J-smith@prodigy.net</Value>
+    </Setting>
+    <Setting Name="SmtpPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">samHell1972</Value>
+    </Setting>
+    <Setting Name="SmtpHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">smtp.mail.att.net</Value>
+    </Setting>
+    <Setting Name="SmtpPort" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="UsersFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">users.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
