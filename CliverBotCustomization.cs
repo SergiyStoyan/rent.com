@@ -114,7 +114,7 @@ Developed by: www.cliversoft.com";
             override public void PROCESSOR(BotCycle bc)
             {
                 CustomBot cb = (CustomBot)bc.Bot;
-                string url = "http://www.rent.com/" + State;
+                string url = "http://www.rent.com/" + Regex.Replace(State, @"\s", "-");
                 if (!cb.HR.GetPage(url))
                     throw new ProcessorException(ProcessorExceptionType.RESTORE_AS_NEW, "Could not get: " + url);
 
@@ -204,28 +204,30 @@ Developed by: www.cliversoft.com";
                 DataSifter.Capture c = product.Parse(cb.HR.HtmlResult);
                 string zip_code = Regex.Replace(c.ValueOf("ZipCode"), @"[^\d]", "", RegexOptions.Singleline);
                 string url2 = "http://www.yellowpages.com/search?search_terms=" + name + "&geo_location_terms=" + zip_code;
-                if (!cb.HR.GetPage(url2))
-                    throw new ProcessorException(ProcessorExceptionType.RESTORE_AS_NEW, "Could not get: " + url2);
-
-                DataSifter.Capture c2 = yp.Parse(cb.HR.HtmlResult);
-                string regex_name = get_stripped_name(name);
-                regex_name = Regex.Escape((regex_name.Length > 10 ? regex_name.Substring(0, 10) : regex_name).Trim());
                 string email = null;
                 string url3 = url2;
-                foreach (DataSifter.Capture cc in c2["Company"])
-                    if (cc.ValueOf("ZipCode") != null
-                        && Regex.Replace(cc.ValueOf("ZipCode"), @"[^\d]", "", RegexOptions.Singleline) == zip_code
-                        && Regex.IsMatch(get_stripped_name(cc.ValueOf("Name")), regex_name, RegexOptions.IgnoreCase)
-                        )
-                    {
-                        url3 = Spider.GetAbsoluteUrl(cc.ValueOf("Url"), url2);
-                        if (!cb.HR.GetPage(url3))
-                            throw new ProcessorException(ProcessorExceptionType.RESTORE_AS_NEW, "Could not get: " + url3);
+                if (cb.HR.GetPage(url2))
+                {
+                    DataSifter.Capture c2 = yp.Parse(cb.HR.HtmlResult);
+                    string regex_name = get_stripped_name(name);
+                    regex_name = Regex.Escape((regex_name.Length > 10 ? regex_name.Substring(0, 10) : regex_name).Trim());
+                    foreach (DataSifter.Capture cc in c2["Company"])
+                        if (cc.ValueOf("ZipCode") != null
+                            && Regex.Replace(cc.ValueOf("ZipCode"), @"[^\d]", "", RegexOptions.Singleline) == zip_code
+                            && Regex.IsMatch(get_stripped_name(cc.ValueOf("Name")), regex_name, RegexOptions.IgnoreCase)
+                            )
+                        {
+                            url3 = Spider.GetAbsoluteUrl(cc.ValueOf("Url"), url2);
+                            if (!cb.HR.GetPage(url3))
+                                throw new ProcessorException(ProcessorExceptionType.RESTORE_AS_NEW, "Could not get: " + url3);
 
-                        DataSifter.Capture c3 = yp2.Parse(cb.HR.HtmlResult);
-                        email = c3.ValueOf("Email");
-                        break;
-                    }
+                            DataSifter.Capture c3 = yp2.Parse(cb.HR.HtmlResult);
+                            email = c3.ValueOf("Email");
+                            break;
+                        }
+                }
+                else if (cb.HR.HWResponse.StatusCode != HttpStatusCode.NotFound)
+                    throw new ProcessorException(ProcessorExceptionType.RESTORE_AS_NEW, "Could not get: " + url2);
 
                 FileWriter.This.PrepareAndWriteHtmlLineWithHeader(
                     "Name", Name,

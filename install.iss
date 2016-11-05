@@ -4,7 +4,7 @@
 [Code]
 function AppName(Param: String): String;
 begin
-  Result := 'google.com-flights';
+  Result := 'rent.com_yp.com';
 end;
 
 function Version(Param: String): String;
@@ -13,7 +13,7 @@ begin
 end;
 
 [Setup]
-OutputBaseFilename=google.com-flights.Setup
+OutputBaseFilename=rent.com_yp.com.Setup
 AppName={code:AppName}
 AppVerName={code:AppName} {code:Version}
 AppPublisher=CliverSoft.com
@@ -36,7 +36,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 ;Source: ".\_config_files\*.*"; DestDir: "{app}"; Flags: ignoreversion
-Source: ".\bin\Release\*.*"; Excludes: "*.pdb,*.vshost.*,.svn,"; DestDir: "{app}"; Flags: ignoreversion
+Source: ".\bin\Debug\*.*"; Excludes: "*.pdb,*.vshost.*,.svn,"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
